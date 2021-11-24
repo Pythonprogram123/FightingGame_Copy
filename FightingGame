@@ -1,0 +1,904 @@
+import random
+# Variables
+ChocoRobo_Fixed_Health = int(1654)
+Kit_Fixed_Health = int(1237)
+MatchCount = int(0)
+WinMatch = int(0)
+TrophyCount = int(0)
+TrophyMin2 = int(2)
+TrophyMin3 = int(3)
+Coins = int(1000)
+Gems = int(0)
+Upgrade = int(0)
+Drone = int(0)
+Solo = int(0)
+Beat_the_Boss = int(0)
+Kit_Upgrade = int(0)
+ChocoRobo_Upgrade = False
+# FP tier
+Tier1to10 = int(100)
+Tier11to20 = int(200)
+Fighter_Box = int(0)
+Box_Opened = int(0)
+From_Boxes = int(2)
+Character_Choice = int(0)
+To_Boxes = int(5)
+Tokens = int(1000000)
+Tiers = int(0)
+# Tiers
+FreeBox = int(0)
+Tier1 = int(0)
+Tier2 = int(0)
+Tier3 = int(0)
+Tier4 = int(0)
+Tier5 = int(0)
+Tier6 = int(0)
+Tier7 = int(0)
+Tier8 = int(0)
+Tier9 = int(0)
+Tier10 = int(0)
+Tier11 = int(0)
+Tier12 = int(0)
+Tier13 = int(0)
+Tier14 = int(0)
+Tier15 = int(0)
+Tier16 = int(0)
+Tier17 = int(0)
+Tier18 = int(0)
+Tier19 = int(0)
+Tier20 = int(0)
+# Player Variables
+# Opponent
+OpponentHealth = int(2800)
+Opponent_Protect = int(0)
+OpponentDam = int(100)
+OpponentSpecial = int(300)
+# Kit
+# Verify
+Kit_Kick_Times = int(0)
+Kit_Gun_Times = int(0)
+Kit_Heal_Times = int(0)
+# Battle
+AttackHealth = int(150)
+HealHealth = int(110)
+GunShotHealth = int(250)
+Kickhealth = int(230)
+BaseHealth = int(1237)
+Kit_Unlock = int(0)
+Kit_Select = int(0)
+Kit_Trophies = int(0)
+# ChocoRobo
+# Verify
+ChocoRobo_Attack_Times = int(0)
+ChocoRobo_Spin_Times = int(0)
+ChocoRobo_Heal_Times = int(0)
+# Battle
+ChocoRobo = int(0)
+Select_ChocoRobo = int(1)
+ChocoRobo_BaseHealth = 1654
+ChocoRobo_Attack = 170
+ChocoRobo_Heal = 130
+ChocoRobo_Spin = 300
+CRobo_Trophies = int(0)
+CRobo_Unlock = int(0)
+# Marg
+Marg = int(0)
+Marg_BaseHealth = (3500)
+Marg_Select = int(0)
+Marg_Punch = int(75*2)
+Marg_Defend = int(100)
+Marg_Supplex = int(500)
+Marg_Trophies = int(0)
+Marg_Unlock = int(0)
+# Screwbot
+ScrewBot_Fixed_Health = int(1476)
+ScrewBot_BaseHealth = int(1476)
+ScrewBot_Select = int(0)
+ScrewBot = int(1)
+ScrewBot_Attack = int(130)
+ScrewBot_Spotted = int(200)
+Damage_Reduction = int(70)
+Spotted = int(0)
+Spotted_DamageBoost = int(90)
+ScrewBot_Trophies = int(0)
+ScrewBot_DefensiveShield = int(70)
+# Boss
+Boss_Attack = int(300)
+Bad_Boss_Health = int(10000)
+Total_Boss_Health = int(10000)
+
+print("                              ꧁ঔৣ☬𝓕𝓘𝓖𝓗𝓣☬ঔৣ꧂")
+print("===================================================================================")
+print("Hi Welcome to Fighting Game 1v1 battle")
+print("If you need help please type ?rules for more info")
+print("Your Starting player is Kit!!!! HE is the beginner player")
+a = 1
+while a < 8:
+    Choice = input(">> ")
+    if Choice == "?help":
+        print("?battle , For battling your opponent and gain money")
+        print("?trophies , For Checking your trophies")
+        print("?news , For Checking about Latest updates and hidden changes")
+        print("?shop , For buying items i.e :- Upgrade and Drone")
+        print("?coins , For checking your total coins")
+        print("?rules , To know about this game and more")
+        print("?wins , For checking your total wins")
+        print("?player , To unlock player")
+    elif Choice == "?fighterpass":
+        print("FIGHTERS PASS")
+        print("Tokens")
+        if Tiers < 10:
+            print(Tokens, '/', Tier1to10)
+        elif Tiers > 11 or Tiers == 11:
+            print(Tokens, '/', Tier11to20)
+        if Tokens > Tier1to10 or Tokens == Tier1to10:
+            Tiers = Tiers + 1
+
+
+        print("Season 1 starts in : 24 hrs")
+        print("Free tier : FighterBox")
+        print("Tier 1 : 50 coins")
+        print("Tier 2 : 5 gems")
+        print('Tier 3 : none')
+        print("Tier 4 : 50 coins")
+        print("Tier 5 : FighterBox")
+        print("Tier 6 : 100 coins")
+        print("Tier 7 : 10 gems")
+        print("Tier 8 : 100 coins")
+        print("Tier 9 : FighterBox")
+        print("Tier 10 : New fighter : ScrewBot")
+        print("Tier 11 : 150 coins")
+        print("Tier 12 : 15 gems")
+        print("Tier 13 : FighterBox")
+        print("Tier 14 : New attack : Meteorite")
+        print("Tier 15 : 200 coins")
+        print("Tier 16 : FighterBox")
+        print("Tier 17 : 250 coins")
+        print("Tier 18 : FighterBox")
+        print("Tier 19 : 300 coins")
+        print("Tier 20 : New Skill : Defencive Shield")
+        print("Rules in FP (Fighter Pass)")
+        print("Play battles or win battles to gain tokens")
+        print("Use these tokens to cross each tier")
+        print("Don't buy unclaimed tiers")
+        print("You can gain token upto 50 per day")
+        Loop_Pass = 1
+        while Loop_Pass < 10:
+            Select_FP_reward = input("Enter the tier no. you want to unlock : ")
+            if Select_FP_reward == "-claim freetier":
+                    print("Free Tier Reward Claimed")
+                    print("Box Opening......")
+                    print("You got !!!!!!!")
+                    Box_Coins = random.randrange(15, 250)
+                    print(Box_Coins, "Coins")
+                    Character_Chance = random.randint(From_Boxes, To_Boxes)
+                    if Box_Opened == Character_Chance:
+                        print("You unlocked ")
+
+                    Coins = Coins + Box_Coins
+                    Box_Opened += 1
+                    Fighter_Box -= 1
+            elif Select_FP_reward == "-claim 1":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                        print("Tier 1's Reward Claimed")
+                        Tokens -= Tier1to10
+                        Coins += 50
+                        print("75 coins")
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 2":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                        print("Tier 2's Reward Claimed")
+                        Tokens -= Tier1to10
+                        Gems += 5
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 3":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                    Tokens -= Tier1to10
+                    print("Tier 3's Reward Claimed")
+                    print("None")
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 4":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                        Tokens -= Tier1to10
+                        print("Tier 4's Reward Claimed")
+                        Coins += 50
+                        print("75 coins")
+
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 5":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                    Tokens -= Tier1to10
+                    Fighter_Box += 1
+                    print("Box Opening......")
+                    print("You got !!!!!!!")
+                    Box_Coins = random.randrange(15, 250)
+                    print(Box_Coins, "Coins")
+                    Character_Chance = random.randint(From_Boxes, To_Boxes)
+                    Character = random.randrange(1, 2)
+                    if Box_Opened == Character_Chance:
+                        print("You unlocked ")
+
+                    Coins = Coins + Box_Coins
+                    Box_Opened += 1
+                    Fighter_Box -= 1
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 6":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                    print("Tier 6's Reward Claimed")
+                    Coins += 100
+                    print("100 coins")
+
+                    Tokens -= Tier1to10
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 7":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                    print("Tier 7's Reward Claimed")
+                    Gems += 10
+                    print("10 gems")
+                    Tokens -= Tier1to10
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 8":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                    print("Tier 8's Reward Claimed")
+                    Coins += 100
+                    print("100 coins")
+
+                    Tokens -= Tier1to10
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 9":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                    print("Tier 9's Reward Claimed")
+                    Fighter_Box += 1
+                    if Fighter_Box == 1:
+                        print("Box Opening......")
+                        print("You got !!!!!!!")
+                        Box_Coins = random.randrange(15, 250)
+                        print(Box_Coins, "Coins")
+                        Character_Chance = random.randint(From_Boxes, To_Boxes)
+                        if Box_Opened == Character_Chance:
+                            print("You unlocked ")
+
+                        Coins = Coins + Box_Coins
+                        Box_Opened += 1
+                        Fighter_Box -= 1
+                        Tokens -= Tier1to10
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 10":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 10's Reward Claimed")
+                    print("You unlocked ScrewBot")
+                    ScrewBot += 1
+                    Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 11":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 11's Reward Claimed")
+                    Coins += 150
+                    print("150 coins")
+
+                    Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 12":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 12's Reward Claimed")
+                    Gems += 15
+                    print("15 gems")
+
+                    Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 13":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 13's Reward Claimed")
+                    Fighter_Box += 1
+                    if Fighter_Box == 1:
+                        print("Box Opening......")
+                        print("You got !!!!!!!")
+                        Box_Coins = random.randrange(15, 250)
+                        print(Box_Coins, "Coins")
+                        Character_Chance = random.randint(From_Boxes, To_Boxes)
+                        if Box_Opened == Character_Chance:
+                            print("You unlocked ")
+
+                        Coins = Coins + Box_Coins
+                        Box_Opened += 1
+                        Fighter_Box -= 1
+                        Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 14":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 14's Reward Claimed")
+            elif Select_FP_reward == "-claim 15":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 15's Reward Claimed")
+                    Coins += 200
+                    print("200 coins")
+                    Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 16":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 16's Reward Claimed")
+                    Fighter_Box += 1
+                    if Fighter_Box == 1:
+                        print("Box Opening......")
+                        print("You got !!!!!!!")
+                        Box_Coins = random.randrange(15, 250)
+                        print(Box_Coins, "Coins")
+                        Character_Chance = random.randint(From_Boxes, To_Boxes)
+                        if Box_Opened == Character_Chance:
+                            print("You unlocked ")
+
+                        Coins = Coins + Box_Coins
+                        Box_Opened += 1
+                        Fighter_Box -= 1
+                        Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 17":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 17's Reward Claimed")
+                    Coins += 250
+                    print("250 coins")
+
+                    Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 18":
+                if Tokens > Tier1to10 or Tokens == Tier1to10:
+                    print("Tier 18's Reward Claimed")
+                    Fighter_Box += 1
+                    if Fighter_Box == 1:
+                        print("Box Opening......")
+                        print("You got !!!!!!!")
+                        Box_Coins = random.randrange(15, 250)
+                        print(Box_Coins, "Coins")
+                        Character_Chance = random.randint(From_Boxes, To_Boxes)
+                        if Box_Opened == Character_Chance:
+                            print("You unlocked ")
+
+                        Coins = Coins + Box_Coins
+                        Box_Opened += 1
+                        Fighter_Box -= 1
+                        Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 19":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 19's Reward Claimed")
+                    Coins += 300
+                    print("300 coins")
+                    Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "-claim 20":
+                if Tokens > Tier1to10 or Tokens == Tier11to20:
+                    print("Tier 20's Reward Claimed")
+                    ScrewBot_DefensiveShield += 1
+                    Tokens -= Tier11to20
+                else:
+                    print("You doesnt have enough tokens")
+            elif Select_FP_reward == "close":
+                break
+            else:
+                print("Use correct options")
+
+    elif Choice == "?player":
+        print("-select <playername>")
+        Choice_Select_Player = input("Enter your Choice : ")
+        if Choice_Select_Player == "-select ChocoRobo":
+            if ChocoRobo == 0:
+                print("You doesnt bought ChocoRobo")
+            elif ChocoRobo == 1:
+                Select_ChocoRobo += 1
+                Kit_Select -= 1
+                Marg_Select -= 1
+                ScrewBot_Select -= 1
+                print("ChocoRobo Selected")
+        elif Choice_Select_Player == "-select Kit":
+            Kit_Select += 1
+            Select_ChocoRobo -= 1
+            Marg_Select -= 1
+            ScrewBot_Select -= 1
+            print("Kit Selected")
+        elif Choice_Select_Player == "-select Marg" and TrophyCount > 50:
+            Marg_Select += 1
+            Kit_Select -= 1
+            Select_ChocoRobo -= 1
+            print('Marg Selected')
+            if TrophyCount < 50:
+                print("Your Trophy Must greater than 50 to unlock Marg")
+        elif Choice_Select_Player == "-select Screwbot" and ScrewBot == 1:
+            ScrewBot_Select += 1
+            Kit_Select -= 1
+            Select_ChocoRobo -= 1
+            Marg_Select -= 1
+            print("Screw Bot Selected")
+        else:
+            print("Enter correct Choice")
+    elif Choice == "?totalplayers":
+        print("Kit ( Beginner )")
+        if ChocoRobo == 1:
+            print("ChocoRobo ( Rare )")
+        if Marg == 1:
+            print("Marg ( Trophy Road Way )")
+        if ScrewBot == 1:
+            print("ScrewBot ( Rare )")
+    elif Choice == "?trophyroad":
+        print("Marg = 50 Trophies")
+        Select_Player = input("Which Player you need : ")
+        if Select_Player == "marg" or "Marg":
+            print("Marg Unlocked")
+            Marg += 1
+    elif Choice == "?battle":
+        OpponentHealth = 1200
+        ChocoRobo_BaseHealth = ChocoRobo_Fixed_Health
+        MatchCount = MatchCount + 1
+        if Select_ChocoRobo == 1:
+                OpponentHealth = 1200
+                ChocoRobo_BaseHealth = 1654
+                print("Opponent Health : ", OpponentHealth)
+                print("BaseHealth : ", ChocoRobo_Fixed_Health)
+                print("Commands to Fight with ChocoRobo")
+                print("1. Attack")
+                print("2. Heal")
+                print("3. Spin ( Special Attack ) ")
+                k = 0
+                while k < 6:
+                    ChoiceFight = int(input())
+                    if ChoiceFight == 1:
+                        OpponentHealth = OpponentHealth - ChocoRobo_Attack
+                        print("Opponent health = ", OpponentHealth, "-", ChocoRobo_Attack)
+                        print("Your Health = ", ChocoRobo_BaseHealth)
+                        if OpponentHealth < 0:
+                            ChocoRobo_BaseHealth = ChocoRobo_Fixed_Health
+                            OpponentHealth = 1200
+                            print("You wins")
+                            CRobo_Trophies += 8
+                            WinMatch = int(WinMatch + 1)
+                            TrophyCount = int(TrophyCount + 8)
+                            Tokens = int(Tokens + 50)
+                            Coins = int(Coins + 100)
+                            break
+                        elif ChocoRobo_BaseHealth < 0:
+                            ChocoRobo_BaseHealth = ChocoRobo_Fixed_Health
+                            print("Opponent wins")
+                            print("Better luck next time")
+                            CRobo_Trophies += 3
+                            Tokens = int(Tokens + 20)
+                            break
+                    elif ChoiceFight == 2:
+                            print("Healing.........")
+                            ChocoRobo_BaseHealth = ChocoRobo_BaseHealth + HealHealth
+                            print("Opponent health = ", OpponentHealth)
+                            print("Your health = ", ChocoRobo_BaseHealth, "+", ChocoRobo_Heal)
+                            if OpponentHealth < 0:
+                                ChocoRobo_BaseHealth = ChocoRobo_Fixed_Health
+                                OpponentHealth = 1200
+                                print("You wins")
+                                CRobo_Trophies += 8
+                                WinMatch = int(WinMatch + 1)
+                                TrophyCount = int(TrophyCount + 8)
+                                Tokens = int(Tokens + 50)
+                                Coins = int(Coins + 100)
+                                break
+                            elif ChocoRobo_BaseHealth < 0:
+                                ChocoRobo_BaseHealth = ChocoRobo_Fixed_Health
+                                print("Opponent wins")
+                                print("Better luck next time")
+                                CRobo_Trophies += 3
+                                Tokens = int(Tokens + 20)
+                                break
+                    elif ChoiceFight == 3:
+                        if ChocoRobo_Heal_Times == 1:
+                            ChocoRobo_Heal_Times -= 1
+                        else:
+                            ChocoRobo_Spin_Times += 1
+                            OpponentHealth = OpponentHealth - ChocoRobo_Spin
+                            print("Opponent health = ", OpponentHealth, "-", ChocoRobo_Spin)
+                            print("Your Health = ", ChocoRobo_BaseHealth)
+                            if OpponentHealth < 0:
+                                ChocoRobo_BaseHealth = ChocoRobo_Fixed_Health
+                                OpponentHealth = 1200
+                                print("You wins")
+                                CRobo_Trophies += 8
+                                WinMatch = int(WinMatch + 1)
+                                TrophyCount = int(TrophyCount + 8)
+                                Tokens = int(Tokens + 50)
+                                Coins = int(Coins + 100)
+                                break
+                            elif ChocoRobo_BaseHealth < 0:
+                                ChocoRobo_BaseHealth = ChocoRobo_Fixed_Health
+                                print("Opponent wins")
+                                print("Better luck next time")
+                                CRobo_Trophies += 3
+                                Tokens = int(Tokens + 20)
+                                break
+                    print("***************************************************************")
+                    print("***************************************************************")
+                    print("Opponents Turn")
+                    Opponent_Turn = random.randrange(2, 4)
+                    if Opponent_Turn == 2:
+                        print("He attacks")
+                        ChocoRobo_BaseHealth = ChocoRobo_BaseHealth - OpponentDam
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', ChocoRobo_BaseHealth, '-', OpponentDam)
+                    else:
+                        print("He Used Oppo_Special")
+                        ChocoRobo_BaseHealth = ChocoRobo_BaseHealth - OpponentSpecial
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', ChocoRobo_BaseHealth, '-', OpponentSpecial)
+        elif Kit_Select == 1:
+                BaseHealth = 1237
+                OpponentHealth = 1200
+                print("Your Opponent Health = ", OpponentHealth)
+                print("Your Health = ", BaseHealth)
+                print("Commands to fight with Kit")
+                print("1 = Attack")
+                print("2 = Heal")
+                print("3 = Kick")
+                print("4 = Gun")
+                k = 0
+                while k < 6:
+                    ChoiceFight = int(input())
+                    if ChoiceFight == 1:
+                            OpponentHealth = OpponentHealth - AttackHealth
+                            print("Opponent health = ", OpponentHealth, "-", AttackHealth)
+                            print("Your Health = ", BaseHealth)
+                            if OpponentHealth < 0 or OpponentHealth == 0:
+                                BaseHealth = Kit_Fixed_Health
+                                OpponentHealth = 1200
+                                print("You wins")
+                                Kit_Trophies += 8
+                                WinMatch = int(WinMatch + 1)
+                                TrophyCount = int(TrophyCount + 8)
+                                Tokens = int(Tokens + 50)
+                                Coins = int(Coins + 100)
+                                break
+                            elif BaseHealth < 0:
+                                BaseHealth = Kit_Fixed_Health
+                                print("Opponent wins")
+                                print("Better luck next time")
+                                Kit_Trophies += 3
+                                Tokens = int(Tokens + 20)
+                                break
+                    elif ChoiceFight == 2:
+                        if Kit_Kick_Times == 1:
+                            Kit_Kick_Times -= 1
+                        elif Kit_Gun_Times == 1:
+                            Kit_Gun_Times -= 1
+                        else:
+                            Kit_Heal_Times += 1
+                            print("Healing.........")
+                            BaseHealth = BaseHealth + HealHealth
+                            print("Opponent health = ", OpponentHealth)
+                            print("Your health = ", BaseHealth, "+", HealHealth)
+                            if OpponentHealth < 0:
+                                BaseHealth = Kit_Fixed_Health
+                                OpponentHealth = 1200
+                                print("You wins")
+                                Kit_Trophies += 8
+                                WinMatch = int(WinMatch + 1)
+                                TrophyCount = int(TrophyCount + 8)
+                                Tokens = int(Tokens + 50)
+                                Coins = int(Coins + 100)
+                                break
+                            elif BaseHealth < 0:
+                                BaseHealth = Kit_Fixed_Health
+                                print("Opponent wins")
+                                print("Better luck next time")
+                                Kit_Trophies += 3
+                                Tokens = int(Tokens + 20)
+                                break
+                    elif ChoiceFight == 3:
+                        if Kit_Heal_Times == 1:
+                            Kit_Heal_Times -= 1
+                        elif Kit_Gun_Times == 1:
+                            Kit_Gun_Times -= 1
+                        else:
+                            Kit_Kick_Times += 1
+                            OpponentHealth = OpponentHealth - Kickhealth
+                            print("Opponent health = ", OpponentHealth, "-", Kickhealth)
+                            print("Your Health = ", BaseHealth)
+                            if OpponentHealth < 0:
+                                BaseHealth = Kit_Fixed_Health
+                                OpponentHealth = 1200
+                                print("You wins")
+                                Kit_Trophies += 8
+                                WinMatch = int(WinMatch + 1)
+                                TrophyCount = int(TrophyCount + 8)
+                                Tokens = int(Tokens + 50)
+                                Coins = int(Coins + 100)
+                                break
+                            elif BaseHealth < 0:
+                                BaseHealth = Kit_Fixed_Health
+                                print("Opponent wins")
+                                print("Better luck next time")
+                                Kit_Trophies += 3
+                                Tokens = int(Tokens + 20)
+                                break
+                    elif ChoiceFight == 4:
+                        if Kit_Kick_Times == 1:
+                            Kit_Kick_Times -= 1
+                        elif Kit_Heal_Times == 1:
+                            Kit_Heal_Times -= 1
+                        else:
+                            Kit_Gun_Times += 1
+                            OpponentHealth = OpponentHealth - GunShotHealth
+                            print("Opponent health = ", OpponentHealth, "-", GunShotHealth)
+                            print("Your health = ", BaseHealth)
+                            if OpponentHealth < 0:
+                                print("You wins")
+                                BaseHealth = Kit_Fixed_Health
+                                OpponentHealth = 1200
+                                Kit_Trophies += 8
+                                WinMatch = int(WinMatch + 1)
+                                TrophyCount = int(TrophyCount + 8)
+                                Tokens = int(Tokens + 50)
+                                Coins = int(Coins + 100)
+                                break
+                            elif BaseHealth < 0:
+                                BaseHealth = Kit_Fixed_Health
+                                print("Opponent wins")
+                                print("Better luck next time")
+                                Kit_Trophies += 3
+                                Tokens = int(Tokens + 20)
+                                break
+                    print("***************************************************************")
+                    print("***************************************************************")
+                    print("Opponents Turn")
+                    Opponent_Turn = random.randrange(2, 4)
+                    if Opponent_Turn == 2:
+                        print("He attacks")
+                        BaseHealth = BaseHealth - OpponentDam
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', BaseHealth, '-', OpponentDam)
+                    else:
+                        print("He Used Oppo_Special")
+                        BaseHealth = BaseHealth - OpponentSpecial
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', BaseHealth, '-', OpponentSpecial)
+        elif Marg_Select == 1:
+            print("Your health : ", Marg_BaseHealth)
+            print("Opponent Health : ", OpponentHealth)
+            print("Commands to fight with Marg")
+            print("1 = Punch")
+            print("2 = Defend")
+            print("3 = Supplex")
+        elif ScrewBot_Select == 1:
+            print("Your Health : ", ScrewBot_BaseHealth)
+            print("Opponent Health : ", OpponentHealth)
+            print("Commands to fight with ScrewBot")
+            print("1 = Attack")
+            print("2 = Spotted")
+            if ScrewBot_DefensiveShield == 1:
+                print("3 = Skill : Defensive Shield")
+            else:
+                print("3 = Skill : Defensive Shield (Locked)")
+            k = 0
+            while k < 6:
+                ChoiceFight = int(input())
+                if ChoiceFight == 1:
+                    if Spotted == 1:
+                        OpponentHealth = OpponentHealth - ScrewBot_Attack + Spotted_DamageBoost
+                    else:
+                        OpponentHealth = OpponentHealth - ScrewBot_Attack
+                    print("Opponent health = ", OpponentHealth, "-", ScrewBot_Attack)
+                    print("Your Health = ", ScrewBot_BaseHealth)
+                    if OpponentHealth < 0:
+                        ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                        OpponentHealth = 1200
+                        print("You wins")
+                        ScrewBot_Trophies += 8
+                        WinMatch = int(WinMatch + 1)
+                        TrophyCount = int(TrophyCount + 8)
+                        Tokens = int(Tokens + 50)
+                        Coins = int(Coins + 100)
+                        break
+                    elif ScrewBot_BaseHealth < 0:
+                        ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                        print("Opponent wins")
+                        print("Better luck next time")
+                        ScrewBot_Trophies += 3
+                        Tokens = int(Tokens + 20)
+                        break
+                elif ChoiceFight == 2:
+                    print("Healing.........")
+                    ChocoRobo_BaseHealth = ChocoRobo_BaseHealth + ChocoRobo_Heal
+                    print("Opponent health = ", OpponentHealth)
+                    print("Your health = ", ScrewBot_BaseHealth, "+", ChocoRobo_Heal)
+                    if OpponentHealth < 0:
+                        ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                        OpponentHealth = 1200
+                        print("You wins")
+                        ScrewBot_Trophies += 8
+                        WinMatch = int(WinMatch + 1)
+                        TrophyCount = int(TrophyCount + 8)
+                        Tokens = int(Tokens + 50)
+                        Coins = int(Coins + 100)
+                        break
+                    elif ScrewBot_BaseHealth < 0:
+                        ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                        print("Opponent wins")
+                        print("Better luck next time")
+                        ScrewBot_Trophies += 3
+                        Tokens = int(Tokens + 20)
+                        break
+                elif ChoiceFight == 3:
+                    if ChocoRobo_Heal_Times == 1:
+                        ChocoRobo_Heal_Times -= 1
+                    else:
+                        ChocoRobo_Spin_Times += 1
+                        if Spotted == 1:
+                            OpponentHealth = OpponentHealth - ScrewBot_Spotted + Spotted_DamageBoost
+                        else:
+                            OpponentHealth = OpponentHealth - ScrewBot_Spotted
+                        OpponentHealth = OpponentHealth - ScrewBot_Spotted
+                        print("Opponent health = ", OpponentHealth, "-", ScrewBot_Spotted)
+                        print("Your Health = ", ScrewBot_BaseHealth)
+                        Spotted += 1
+                        if OpponentHealth < 0:
+                            ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                            OpponentHealth = 1200
+                            print("You wins")
+                            ScrewBot_Trophies += 8
+                            WinMatch = int(WinMatch + 1)
+                            TrophyCount = int(TrophyCount + 8)
+                            Tokens = int(Tokens + 50)
+                            Coins = int(Coins + 100)
+                            break
+                        elif ScrewBot_BaseHealth < 0:
+                            ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                            print("Opponent wins")
+                            print("Better luck next time")
+                            ScrewBot_Trophies += 3
+                            Tokens = int(Tokens + 20)
+                            break
+                elif ChoiceFight == 4:
+                    if ChocoRobo_Heal_Times == 1:
+                        ChocoRobo_Heal_Times -= 1
+                    else:
+                        ChocoRobo_Spin_Times += 1
+
+                        OpponentHealth = OpponentHealth - ScrewBot_Spotted
+                        print("Opponent health = ", OpponentHealth, "-", ScrewBot_Spotted)
+                        print("Your Health = ", ScrewBot_BaseHealth)
+                        Spotted += 1
+                        if OpponentHealth < 0:
+                            ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                            OpponentHealth = 1200
+                            print("You wins")
+                            ScrewBot_Trophies += 8
+                            WinMatch = int(WinMatch + 1)
+                            TrophyCount = int(TrophyCount + 8)
+                            Tokens = int(Tokens + 50)
+                            Coins = int(Coins + 100)
+                            break
+                        elif ScrewBot_BaseHealth < 0:
+                            ScrewBot_BaseHealth = ScrewBot_Fixed_Health
+                            print("Opponent wins")
+                            print("Better luck next time")
+                            ScrewBot_Trophies += 3
+                            Tokens = int(Tokens + 20)
+                            break
+                print("***************************************************************")
+                print("***************************************************************")
+                print("Opponents Turn")
+                Opponent_Turn = random.randrange(2, 4)
+                if Opponent_Turn == 2:
+                    print("He attacks")
+                    if ScrewBot_DefensiveShield == 1:
+                        ScrewBot_BaseHealth = ScrewBot_BaseHealth - (OpponentDam - Damage_Reduction)
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', ScrewBot_BaseHealth, '-', OpponentDam - Damage_Reduction)
+                    else:
+                        ScrewBot_BaseHealth = ScrewBot_BaseHealth - OpponentDam
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', ScrewBot_BaseHealth, '-', OpponentDam)
+                else:
+                    if ScrewBot_DefensiveShield == 1:
+                        print("He Used Oppo_Special")
+                        ScrewBot_BaseHealth = ScrewBot_BaseHealth - (OpponentSpecial - Damage_Reduction)
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', ScrewBot_BaseHealth, '-', OpponentSpecial - Damage_Reduction)
+                    else:
+                        print("He Used Oppo_Special")
+                        ScrewBot_BaseHealth = ScrewBot_BaseHealth - OpponentSpecial
+                        print("Opponent health = ", OpponentHealth)
+                        print('Your Health = ', ScrewBot_BaseHealth, '-', OpponentSpecial)
+        else:
+            print("First Select Unlocked Character")
+
+    elif Choice == "?shop":
+        print("          Today,s Shop")
+        print("1 = Drone : 150")
+        print("2 = Upgrade : 100")
+        print("3 = ChocoRobo : 250")
+        Shop_Choice = input("Enter your Choice : ")
+        if Shop_Choice == "1":
+            print("Drone,it cost 150 coins Do you want to buy")
+            Choice_Drone_Buy = input("Yes or no : ")
+            if Choice_Drone_Buy == "Yes" or "yes":
+                if Coins >= 150:
+                    print("Successfully bought and you need to remember this code CrshtyAD or Copy it to verify and paste in the battle ")
+                else:
+                    print("you does't have money to buy drone")
+            elif Choice_Drone_Buy == "no" or "No":
+                print("Buy whenever you want")
+            else:
+                print("Use correct options")
+        elif Shop_Choice == "2":
+            Charater_Upgrade = input("Which Player you need to upgrade : ")
+            if Charater_Upgrade == "ChocoRobo" and Coins >= 100 and ChocoRobo == 1:
+                print("Upgrading....")
+                ChocoRobo_Upgrade = True
+                print("Upgraded ChocoRobo")
+                Coins -= 100
+            elif Coins <= 100:
+                print("You doesn't have money")
+            elif ChocoRobo == 0:
+                print("YOu doesn't buy ChocoRobo")
+
+        elif Shop_Choice == "3":
+            print("Do you want to buy ChocoRobo")
+            YorN = input("Yes or no : ")
+            if YorN == "yes" or "Yes" and Coins >= 250 or Coins == 250:
+                print("You purchased ChocoRobo")
+                ChocoRobo = ChocoRobo + 1
+                Coins -= 250
+        else:
+            print("Use Correct options")
+    elif Choice == "?trophies":
+        print("Total trophies : ",TrophyCount)
+    elif Choice == "?news":
+        print("1.Patch Notes")
+        print("2.Balance Changes")
+        News_Choice = input("Choose any of these on above : ")
+        if News_Choice == "Patch Notes" or "Patchnotes" or "patchnotes" or "PatchNotes":
+            print("1. Lines Decreased 1500 to 230")
+            print("2. Fixed No word in code")
+            print("3. New Characters in Fight.io")
+            print("   Kit is Beginner")
+        elif News_Choice == "BalanceChanges" or "balancechanges" or "Balancechanges":
+            print("1. Opponent Damage increased 100 to 200")
+    elif Choice == "?coins":
+        print("Total coins : ", Coins)
+    elif Choice == "?matches":
+        print("Total Matches you played : ", MatchCount)
+    elif Choice == "?wins":
+        print("Total wins : ", WinMatch)
+    elif Choice == "?rules":
+        print("Your Code must contain '?' along with code ex :- ?coins etc")
+        print("Your Code must be in lowercase")
+        print("Your if bug contact us by telling in NFUM")
+        print("Enjoy our Game Daily or Weekly Maintenance Break")
+        print("If you need help for commands type ?help")
+    elif Choice == "?profile":
+        print("ChocoRobo Trophies : ", CRobo_Trophies)
+        print("Kit Trophies : ", Kit_Trophies)
+        print("Matches : ",MatchCount)
+        print("Wins : ", WinMatch)
+        print("Total trophies : ", TrophyCount)
+        print("Coins : ", Coins)
+    else:
+        print("Please enter code that is available")
+
+
+
+
+
+
+
+
